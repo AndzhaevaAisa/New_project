@@ -1,0 +1,28 @@
+﻿@model project_new.ViewModels.LoginViewModel
+<h2 class="left_space">Вход в приложение</h2>
+<form method="post" asp-controller="Account" asp-action="Login"
+      asp-route-returnUrl="@Model.ReturnUrl" class="login_register">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="left_space">
+        <label asp-for="Email"></label><br />
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="left_space">
+        <label asp-for="Password"></label><br />
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="submit_c">
+        <div class="left_space">
+            <input type="submit" value="Войти" />
+        </div>
+        <div>
+            <label asp-for="RememberMe" style="color: white"></label><br />
+            <input asp-for="RememberMe" />
+        </div>
+        <div>
+
+        </div>
+    </div>
+</form>
