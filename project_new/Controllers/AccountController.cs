@@ -27,8 +27,8 @@ namespace project_new.Controllers
         {
             return View();
         }
-        [HttpPost("Register")]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromForm]RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -57,9 +57,9 @@ namespace project_new.Controllers
             return View(new LoginViewModel { ReturnUrl = returnUrl });
         }
 
-        [HttpPost("Login")]
+        [HttpPost("login")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Login([FromForm] LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
