@@ -22,11 +22,24 @@ namespace project_new.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
+
+        /// <summary>
+        /// Страница регистрации 
+        /// {api/Account/register}
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("register")]
         public IActionResult Register()
         {
             return View();
         }
+
+        /// <summary>
+        /// метод Post регистации
+        /// {api/Account/register}
+        /// </summary>
+        /// <param name="model">Форма регистрации</param>
+        /// <returns></returns>
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromForm]RegisterViewModel model)
         {
@@ -51,12 +64,25 @@ namespace project_new.Controllers
             }
             return View(model);
         }
+
+        /// <summary>
+        /// Страница входа
+        /// {api/Account/login}
+        /// </summary>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
         [HttpGet("login")]
         public IActionResult Login(string returnUrl = null)
         {
             return View(new LoginViewModel { ReturnUrl = returnUrl });
         }
 
+        /// <summary>
+        /// метод Post  входа
+        /// {api/Account/login}
+        /// </summary>
+        /// <param name="model">Форма входа</param>
+        /// <returns></returns>
         [HttpPost("login")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login([FromForm] LoginViewModel model)
@@ -84,7 +110,11 @@ namespace project_new.Controllers
             }
             return View(model);
         }
-
+        
+        /// <summary>
+        /// Выход
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()

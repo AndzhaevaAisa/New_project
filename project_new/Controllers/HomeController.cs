@@ -13,11 +13,16 @@ namespace project_new.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
+        /// <summary>
+        /// Представление главного окна
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             return View();
